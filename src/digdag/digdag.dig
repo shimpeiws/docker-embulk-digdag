@@ -1,0 +1,11 @@
+timezone: "Asia/Tokyo"
+
+schedule:
+  daily>: 00:00:00
+
++setup:
+  echo>: ${moment(session_time).utc().format('YYYY-MM-DD HH:mm:ss Z')}
+
++run_embulk:
+  sh>: embulk run ./../embulk/example.yml.liquid
+
