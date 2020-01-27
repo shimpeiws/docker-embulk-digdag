@@ -7,5 +7,5 @@ schedule:
   echo>: ${moment(session_time).utc().format('YYYY-MM-DD HH:mm:ss Z')}
 
 +run_embulk:
-  sh>: embulk run ./../embulk/example.yml.liquid
+  sh>: java -jar /root/.embulk/bin/embulk run ./../embulk/example.yml.liquid
 
