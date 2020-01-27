@@ -1,0 +1,20 @@
+in:
+  type: dynamodb
+  auth_method: env
+  region: ap-northeast-1
+  operation: scan
+  table: staff
+  columns:
+    - { name: id, type: string }
+    - { name: email, type: string }
+
+out:
+  type: postgresql
+  mode: truncate_insert
+  default_timezone: "Asia/Tokyo"
+  host: {{ env.DB_HOST }}
+  port: {{ env.DB_PORT }}
+  user: {{ env.DB_USER }}
+  password: {{ env.DB_PASSWORD }}
+  database: your-database
+  table: staffs

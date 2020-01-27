@@ -18,8 +18,9 @@ RUN curl -o ~/bin/digdag --create-dirs -L "https://dl.digdag.io/digdag-latest" \
 RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv && \
   echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
   echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-
 ENV PATH /root/.rbenv/shims:/root/.rbenv/bin:$PATH
+
+RUN . ~/.bashrc
 
 # Install ruby-build & ruby
 RUN git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build && \
@@ -28,3 +29,7 @@ RUN git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-buil
 
 # Install bundler
 RUN ~/.rbenv/bin/rbenv exec gem install bundler -v 2.1.4
+
+# Install embulk plugins
+RUN ~/.embulk/bin/embulk gem install embulk-input-dynamodb
+RUN ~/.embulk/bin/embulk gem install embulk-output-postgresql
