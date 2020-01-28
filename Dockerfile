@@ -2,7 +2,8 @@ FROM openjdk:8-jdk-stretch
 
 RUN apt-get update \
   && apt-get install curl \
-  && apt-get install -y gcc libssl-dev libreadline-dev autoconf zlib1g-dev make
+  && apt-get install -y gcc libssl-dev libreadline-dev autoconf zlib1g-dev make \
+  && apt-get install -y libpq-dev default-libmysqlclient-dev
 
 # Install embulk
 RUN curl --create-dirs -o ~/.embulk/bin/embulk -L "https://dl.embulk.org/embulk-latest.jar" \

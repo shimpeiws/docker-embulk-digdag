@@ -17,6 +17,7 @@ GEM
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     minitest (5.14.0)
+    pg (1.2.2)
     ridgepole (0.8.6)
       activerecord (>= 5.0.1, < 6.1)
       diffy
@@ -29,6 +30,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  pg
   ridgepole
 
 BUNDLED WITH
