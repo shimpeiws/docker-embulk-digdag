@@ -6,6 +6,12 @@ schedule:
 +setup:
   echo>: ${moment(session_time).utc().format('YYYY-MM-DD HH:mm:ss Z')}
 
++bundle-install:
+  sh>: cd ./../ridgepole && bundle install
+
++db-migrate:
+  sh>: cd ./../ridgepole && bundle exec ridgepole -c "postgres://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/$DB_NAME" --apply -f config/schema/*
+
 +run_embulk:
   sh>: java -jar /root/.embulk/bin/embulk run ./../embulk/example.yml.liquid
 
