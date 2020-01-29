@@ -12,7 +12,7 @@ schedule:
 +db-migrate:
   sh>: cd ./../ridgepole && bundle exec ridgepole -c "postgres://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/$DB_NAME" --apply -f config/schema/*
 
-+install-embulk-lib
++install-embulk-lib:
   sh>: ~/.embulk/bin/embulk gem install embulk-input-dynamodb && ~/.embulk/bin/embulk gem install embulk-output-postgresql
 
 +run_embulk:
