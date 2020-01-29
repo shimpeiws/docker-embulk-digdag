@@ -1,0 +1,6 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "staffs", id: :text, force: :cascade do |t|
+  t.text "email", null: false
+  t.index ["email"], name: "staffs_unique", unique: true
+end
