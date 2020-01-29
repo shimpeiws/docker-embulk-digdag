@@ -31,10 +31,6 @@ RUN git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-buil
 # Install bundler
 RUN ~/.rbenv/bin/rbenv exec gem install bundler -v 2.1.4
 
-# Install embulk plugins
-RUN ~/.embulk/bin/embulk gem install embulk-input-dynamodb
-RUN ~/.embulk/bin/embulk gem install embulk-output-postgresql
-
 WORKDIR /src/digdag
 EXPOSE 65432
 CMD ["java", "-jar", "/root/bin/digdag", "scheduler", "-m"]
