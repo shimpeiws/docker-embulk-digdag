@@ -1,0 +1,22 @@
+---
+username: Digdag
+icon_emoji: ":cry:"
+# channel: '#general' ## if you need to send message to specific channel
+attachments:
+  - fallback: "[FAIL] ${workflow_name} workflow"
+    color: "danger"
+    text: "*[FAIL]* `${workflow_name}` Workflow"
+    mrkdwn_in:
+      - text
+      - pretext
+      - fields
+    fields:
+      - title: Task Name
+        value: "${task_name}"
+        short: false
+      - title: Error Message
+        value: "`${error.message}`"
+        short: false
+      - title: Session Date
+        value: "${session_date}"
+        short: true
