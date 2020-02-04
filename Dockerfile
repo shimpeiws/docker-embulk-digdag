@@ -33,4 +33,4 @@ RUN ~/.rbenv/bin/rbenv exec gem install bundler -v 2.1.4
 
 WORKDIR /src/digdag
 EXPOSE 65432
-CMD ["java", "-jar", "/root/bin/digdag", "scheduler", "-m"]
+CMD ["java", "-jar", "/root/bin/digdag", "scheduler", "-m", "-c", "config.properties"]
