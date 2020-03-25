@@ -31,6 +31,8 @@ RUN git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-buil
 # Install bundler
 RUN ~/.rbenv/bin/rbenv exec gem install bundler -v 2.1.4
 
+COPY src/ /src/
+
 WORKDIR /src/digdag
 EXPOSE 65432
 CMD ["java", "-jar", "/root/bin/digdag", "scheduler", "-m", "-c", "config.properties"]
